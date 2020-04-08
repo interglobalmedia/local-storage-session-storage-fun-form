@@ -14,7 +14,9 @@
 <body>
     <div class="wrapper">
         <h1 class="title">Storage Fun With Forms</h1>
-        <p class="font-color font-style">This is some text so I can see if the font color works.</p>
+        <p class="font-color font-style">Write a note about your experience here and save it to local storage. All the
+            other selections you make here are also being saved to local storage so that you may be reminded of them
+            when you return!</p>
         <form id="fun-form">
             <fieldset>
                 <label for="bgcolor">Choose Background Color:</label>
@@ -95,7 +97,11 @@
             <fieldset>
                 <div class="note">
                     <label for="textArea">Type Note:</label>
-                    <textarea type="text" id="textArea" name="textArea"></textarea>
+                    <textarea type="text" id="textArea" name="textArea">Write a note!</textarea>
+                </div>
+                <div class="note-btn-wrapper">
+                    <button type="button" id="note-btn">Submit Note</button>
+                    <button type="button" id="get-note-btn">Get Note</button>
                 </div>
             </fieldset>
             <footer></footer>
