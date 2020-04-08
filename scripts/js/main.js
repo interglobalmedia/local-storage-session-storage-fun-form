@@ -18,11 +18,19 @@ let noteBtn = document.querySelector("#note-btn");
 let getNoteBtn = document.querySelector("#get-note-btn");
 // clear storage button
 const clearStorageButton = document.querySelector(".clear");
-
+// empty storage button
+const emptyStorageButton = document.querySelector(".empty");
+// clear storage function. Only clears the note local storage.
 function clearStorage() {
   let note = document.querySelector("#textArea");
   note.value = "";
   localStorage.removeItem("note", note.value);
+}
+// empty local storage, meaning everything.
+function emptyStorage() {
+  let note = document.querySelector("#textArea");
+  note.value = "";
+  localStorage.clear();
 }
 
 if (!localStorage.getItem("bgcolor")) {
@@ -69,6 +77,8 @@ getNoteBtn.addEventListener("click", () => {
 
 // clear the note local storage key value
 clearStorageButton.addEventListener("click", clearStorage);
+// empty local storage completely
+emptyStorageButton.addEventListener("click", emptyStorage);
 // listen for change in background color input field
 bgColorInput.addEventListener("change", populateStorage);
 // listen for change in font color input field
