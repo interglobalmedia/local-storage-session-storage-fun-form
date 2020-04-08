@@ -18,6 +18,8 @@ let noteBtn = document.querySelector("#note-btn");
 let getNoteBtn = document.querySelector("#get-note-btn");
 // clear storage button
 const clearStorageButton = document.querySelector(".clear");
+// storage quota message div
+const storageQuotaMsg = document.getElementById("storage-quota-msg");
 // empty storage button
 const emptyStorageButton = document.querySelector(".empty");
 // clear storage function. Only clears the note local storage.
@@ -33,6 +35,11 @@ function emptyStorage() {
   localStorage.clear();
 }
 
+// check for local storage
+function localStorageSupport() {
+  return typeof Storage !== "undefined";
+}
+
 if (!localStorage.getItem("bgcolor")) {
   populateStorage();
 } else {
@@ -40,12 +47,30 @@ if (!localStorage.getItem("bgcolor")) {
 }
 
 function populateStorage() {
-  localStorage.setItem("bgcolor", document.getElementById("bgcolor").value);
-  localStorage.setItem("fontfamily", document.getElementById("font").value);
-  localStorage.setItem("image", document.getElementById("image").value);
-  localStorage.setItem("fontcolor", document.querySelector("#fontcolor").value);
-  localStorage.setItem("note", document.querySelector("#textArea").value);
-  setStyles();
+  // run detection with inverted expression
+  if (!sessionStorageSupport) {
+    // change value to inform visitor of no session storage support
+    storageQuotaMsg.innerHTML = "Sorry. No HTML5 session storage support here.";
+  } else {
+    try {
+      localStorage.setItem("bgcolor", document.getElementById("bgcolor").value);
+      localStorage.setItem("fontfamily", document.getElementById("font").value);
+      localStorage.setItem("image", document.getElementById("image").value);
+      localStorage.setItem(
+        "fontcolor",
+        document.querySelector("#fontcolor").value
+      );
+      localStorage.setItem("note", document.querySelector("#textArea").value);
+      setStyles();
+    } catch (domException) {
+      if (
+        domException.name === "QUOTA_EXCEEDED_ERR" ||
+        domException.name === "NS_ERROR_DOM_QUOTA_REACHED"
+      ) {
+        storageQuotaMsg.innerHTML = "Local Storage Quota Exceeded!";
+      }
+    }
+  }
 }
 
 function setStyles() {
