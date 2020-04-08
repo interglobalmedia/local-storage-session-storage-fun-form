@@ -8,6 +8,7 @@ body {
   display: -moz-box;
   display: box;
   display: flex;
+  flex-direction: column;
   -webkit-box-align: center;
   -moz-box-align: center;
   box-align: center;
@@ -25,7 +26,8 @@ body > .wrapper {
   padding: 2rem;
   position: relative;
   border: 6px solid black;
-  margin-top: 9rem; }
+  margin-top: 9rem;
+  margin-bottom: 6rem; }
 
 body > div > div {
   width: 300px; }
@@ -133,8 +135,8 @@ img {
 .image {
   width: 100%;
   height: 100%;
-  max-width: 200px;
-  max-height: 300px; }
+  width: 200px;
+  height: 300px; }
 
 .note-btn-wrapper,
 .storage-buttons {
@@ -165,3 +167,18 @@ img {
   font-size: 1rem;
   background: black;
   color: #fafafa; }
+
+/* Footer styling based on Philip Walton's Sticky Footer used with CSS Flexbox */
+.site-footer {
+  height: 32vh;
+  width: 100%;
+  font-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; }
+  @media (min-width: 411px) {
+    .site-footer {
+      font-size: 120%; } }
+  @media (min-width: 600px) {
+    .site-footer {
+      font-size: 130%; } }
