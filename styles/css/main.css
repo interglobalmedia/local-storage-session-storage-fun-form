@@ -133,11 +133,26 @@ img {
   max-width: 200px;
   max-height: 300px; }
 
-.note-btn-wrapper {
+.note-btn-wrapper,
+.storage-buttons {
   display: flex;
   justify-content: space-between;
   width: 100%;
   max-width: 250px; }
+
+.storage-buttons {
+  margin-top: 1rem; }
+
+.clear,
+.empty {
+  font-size: 1rem;
+  font-family: "PT Sans", sans-serif; }
+  .clear:focus, .clear:hover, .clear:active,
+  .empty:focus,
+  .empty:hover,
+  .empty:active {
+    color: #d86262;
+    text-decoration: none; }
 
 #note-btn,
 #get-note-btn {

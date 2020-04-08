@@ -169,12 +169,33 @@ img {
     max-height: 300px;
 }
 
-.note-btn-wrapper {
+.note-btn-wrapper,
+.storage-buttons {
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 250px;
 }
+
+.storage-buttons {
+    margin-top: 1rem;
+}
+
+.clear,
+.empty {
+    font-size: 1rem;
+    font-family: "PT Sans",
+        sans-serif;
+
+    &:focus,
+    &:hover,
+    &:active {
+        color: #d86262;
+        text-decoration: none;
+    }
+
+}
+
 
 #note-btn,
 #get-note-btn {
