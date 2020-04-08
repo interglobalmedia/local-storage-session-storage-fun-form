@@ -140,24 +140,28 @@ textarea {
 }
 
 textarea {
-    margin-top: 0.25rem;
+    margin-top: 0.25rem
 }
 
 img {
     position: absolute;
-    top: 38.5rem;
+    top: 42.5rem;
     right: 0;
 
     @media #{$min-360} {
-        top: 37rem;
+        top: 40.5rem;
     }
 
     @media #{$min-480} {
-        top: 31rem;
+        top: 37rem;
+    }
+
+    @media #{$min-600} {
+        top: 34rem;
     }
 
     @media #{$min-680} {
-        top: 9rem;
+        top: 11rem;
         right: 5rem;
     }
 }
