@@ -16,15 +16,14 @@ let textAreaElem = document.querySelector("textarea");
 let textAreaInput = document.querySelector("#textArea");
 let noteBtn = document.querySelector("#note-btn");
 let getNoteBtn = document.querySelector("#get-note-btn");
+// clear storage button
+const clearStorageButton = document.querySelector(".clear");
 
-noteBtn.addEventListener("click", () => {
-  localStorage.setItem("note", document.querySelector("#textArea").value);
-});
-
-getNoteBtn.addEventListener("click", () => {
-  localStorage.getItem("note", document.querySelector("#textArea").value);
-  document.querySelector("#textArea").value = localStorage.getItem("note");
-});
+function clearStorage() {
+  let note = document.querySelector("#textArea");
+  note.value = "";
+  localStorage.removeItem("note", note.value);
+}
 
 if (!localStorage.getItem("bgcolor")) {
   populateStorage();
@@ -58,7 +57,18 @@ function setStyles() {
   fontStyleElem.style.color = currentFontColor;
   imageElem.setAttribute("src", currentImage);
 }
+// save textarea text to local storage on click
+noteBtn.addEventListener("click", () => {
+  localStorage.setItem("note", document.querySelector("#textArea").value);
+});
+// get note local storage value and save it to value of textarea text
+getNoteBtn.addEventListener("click", () => {
+  localStorage.getItem("note", document.querySelector("#textArea").value);
+  document.querySelector("#textArea").value = localStorage.getItem("note");
+});
 
+// clear the note local storage key value
+clearStorageButton.addEventListener("click", clearStorage);
 // listen for change in background color input field
 bgColorInput.addEventListener("change", populateStorage);
 // listen for change in font color input field
