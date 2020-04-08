@@ -14,7 +14,8 @@
 <body>
     <div class="wrapper">
         <h1 class="title">Storage Fun With Forms</h1>
-        <p class="font-color font-style">Write a note about your experience here and save it to local storage. All the
+        <p class="font-color font-style">Write a note about your experience here and save it to local storage. All
+            the
             other selections you make here are also being saved to local storage so that you may be reminded of them
             when you return!</p>
         <form id="fun-form">
@@ -109,9 +110,21 @@
                     <button type="button" id="get-note-btn">Get Note</button>
                 </div>
             </fieldset>
-            <footer></footer>
             <img class="image" alt="" />
         </form>
+    </div>
+    <div class="footer-wrapper">
+        <footer class="site-footer">
+            <script>
+                const theDate = new Date();
+                const footer = document.querySelector(".site-footer");
+                footer.style.fontWeight = "600";
+                footer.style.letterSpacing = "0.07rem";
+                footer.style.fontFamily = "Arimo, sans-serif";
+                footer.innerHTML =
+                    `&#10013; © ${theDate.getFullYear()} Maria D. Campbell &#10013;`;
+            </script>
+        </footer>
     </div>
     <script src="scripts/js/main.js"></script>
 </body>

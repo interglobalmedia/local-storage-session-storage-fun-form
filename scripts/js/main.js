@@ -48,7 +48,7 @@ if (!localStorage.getItem("bgcolor")) {
 
 function populateStorage() {
   // run detection with inverted expression
-  if (!sessionStorageSupport) {
+  if (!localStorageSupport) {
     // change value to inform visitor of no session storage support
     storageQuotaMsg.innerHTML = "Sorry. No HTML5 session storage support here.";
   } else {
