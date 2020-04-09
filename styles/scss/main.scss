@@ -7,9 +7,16 @@ $min-680: "(min-width: 680px)";
 $min-800: "(min-width: 800px)";
 
 * {
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
+}
+
+html {
+    height: 100vh;
+}
+
+html,
+body {
+    margin: 0;
 }
 
 body {
@@ -27,8 +34,6 @@ body {
     -moz-box-pack: center;
     box-pack: center;
     align-items: center;
-
-    height: inherit;
 }
 
 body>.wrapper {
@@ -40,12 +45,16 @@ body>.wrapper {
     border: 6px solid black;
     margin-top: 9rem;
     margin-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
 }
 
+/* body wrapper and div for label and selects styling */
 body>div>div {
     width: 300px;
 }
 
+/* h1 styling */
 h1.title {
     margin: 0;
     padding: 0;
@@ -81,37 +90,20 @@ h1.title {
     }
 }
 
-div.font-color {
-    width: 100%;
-    min-height: 0;
-    overflow-y: auto;
-}
-
+/* form styling by id (more specific) */
 #fun-form {
     width: 100%;
     margin: 0 auto;
 }
 
-fieldset {
-    border: none;
-
-    &:nth-of-type(4) textarea {
-        display: flex;
-        // flex-direction: column;
-    }
-}
-
-form>fieldset:not(:last-of-type) {
-    display: flex;
-    flex-direction: row;
-}
-
+/* general label styling */
 label {
     margin: 0.75rem 0 0.25rem;
     font-family: "PT Sans", sans-serif;
     font-weight: 400;
 }
 
+/* textarea styling */
 .note {
     margin-top: 0.75rem;
     display: flex;
@@ -119,17 +111,35 @@ label {
     justify-content: center;
 }
 
+/* font color input div styling */
 .inputs {
     display: flex;
 }
 
+/* styling for both font and background color inputs */
 input[name="color"] {
     width: 100%;
-    max-width: calc(250px - 0px);
+    width: 200px;
     height: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
-select,
+/* Styling for select tags */
+form>div>select {
+    display: block;
+}
+
+select {
+    margin-top: 0.5rem;
+    width: 200px;
+
+    &:first-of-type {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* textarea styling */
 textarea {
     width: 100%;
     max-width: 250px;
@@ -140,23 +150,21 @@ textarea {
     padding: 0.5rem;
     letter-spacing: 0.09rem;
     font-size: 1rem;
+    margin-top: 0.25rem;
 }
 
-textarea {
-    margin-top: 0.25rem
-}
-
+/* image tag styling */
 img {
     position: absolute;
-    top: 44.5rem;
+    top: 42.5em;
     right: 0;
 
     @media #{$min-360} {
-        top: 42.5rem;
+        top: 40rem;
     }
 
     @media #{$min-480} {
-        top: 39rem;
+        top: 37rem;
     }
 
     @media #{$min-600} {
@@ -169,6 +177,7 @@ img {
     }
 }
 
+/* image size styling by class (more specific) */
 .image {
     width: 100%;
     height: 100%;
@@ -186,8 +195,10 @@ img {
 
 .storage-buttons {
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
+/* clear and empty storage buttons styling */
 .clear,
 .empty {
     font-size: 1rem;
@@ -203,7 +214,7 @@ img {
 
 }
 
-
+/* submit note and get note button styling */
 #note-btn,
 #get-note-btn {
     width: 90px;
@@ -214,9 +225,9 @@ img {
     color: rgb(250, 250, 250);
 }
 
-/* Footer styling based on Philip Walton's Sticky Footer used with CSS Flexbox */
+/* Footer styling loosely based on Philip Walton's Sticky Footer used with CSS Flexbox */
 .site-footer {
-    height: 32vh;
+    height: 50vh;
     width: 100%;
     font-size: 100%;
     display: flex;
