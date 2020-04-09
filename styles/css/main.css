@@ -31,7 +31,7 @@ body > .wrapper {
   position: relative;
   border: 6px solid black;
   margin-top: 9rem;
-  margin-bottom: 6rem;
+  margin-bottom: 22vh;
   display: flex;
   flex-direction: column; }
 
