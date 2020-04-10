@@ -85,9 +85,9 @@ function setStyles() {
   document.getElementById("fontcolor").value = currentFontColor;
   document.querySelector(".font-color").value = currentFontColor;
 
-  htmlElem.style.backgroundColor = currentBgColor;
+  htmlElem.style.backgroundColor = "#" + currentBgColor;
   pElem.style.fontFamily = currentFont;
-  fontStyleElem.style.color = currentFontColor;
+  fontStyleElem.style.color = "#" + currentFontColor;
   imageElem.setAttribute("src", currentImage);
 }
 // save textarea text to local storage on click
