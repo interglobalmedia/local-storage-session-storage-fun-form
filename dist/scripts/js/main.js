@@ -1,6 +1,5 @@
 // background color related variables
 let bgColorInput = document.querySelector('#bgcolor');
-// background related variable
 let htmlElem = document.querySelector('html');
 // font color related variables
 let fontColorInput = document.querySelector('#fontcolor');
