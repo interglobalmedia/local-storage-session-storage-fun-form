@@ -93,10 +93,12 @@ function setStyles() {
   fontStyleElem.style.color = '#' + currentFontColor;
   imageElem.setAttribute('src', currentImage);
 }
+
 // save textarea text to local storage on click
 noteBtn.addEventListener('click', () => {
   localStorage.setItem('note', document.querySelector('#textArea').value);
 });
+
 // get note local storage value and save it to value of textarea text
 getNoteBtn.addEventListener('click', () => {
   localStorage.getItem('note', document.querySelector('#textArea').value);
