@@ -42,7 +42,12 @@ function localStorageSupport() {
 }
 
 /* if there isn't a 'bgcolor' key to get in local storage, make a call to populateStorage() function.  Else, make a call to the setStyles() function. */
-if (!localStorage.getItem('bgcolor')) {
+if (
+  !localStorage.getItem('bgcolor') ||
+  !localStorage.getItem('fontfamily') ||
+  !localStorage.getItem('image') ||
+  !localStorage.getItem('fontcolor')
+) {
   populateStorage();
 } else {
   setStyles();
