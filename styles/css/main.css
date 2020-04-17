@@ -95,7 +95,7 @@ label {
 /* styling for both font and background color inputs */
 input[name="color"] {
   width: 100%;
-  width: 200px;
+  width: 250px;
   height: 1.5rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem; }
