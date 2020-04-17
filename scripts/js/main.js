@@ -41,13 +41,14 @@ function localStorageSupport() {
   return typeof Storage !== 'undefined';
 }
 
-// if there isn't a 'bgcolor' key to get in local storage, make a call to populateStorage() function.
+/* if there isn't a 'bgcolor' key to get in local storage, make a call to populateStorage() function.  Else, make a call to the setStyles() function. */
 if (!localStorage.getItem('bgcolor')) {
   populateStorage();
 } else {
   setStyles();
 }
 
+/* populate storage using the setItem() method. Also check for localStorage support and storage quota. */
 function populateStorage() {
   // run detection with inverted expression
   if (!localStorageSupport) {
@@ -76,6 +77,7 @@ function populateStorage() {
   }
 }
 
+/* Set styles of body background color, font style, image selection, and paragraph font color using the getItem() method to retrieve their values from local storage. */
 function setStyles() {
   let currentBgColor = localStorage.getItem('bgcolor');
   let currentFont = localStorage.getItem('fontfamily');
