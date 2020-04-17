@@ -21,12 +21,14 @@ const clearStorageButton = document.querySelector('.clear');
 const storageQuotaMsg = document.getElementById('storage-quota-msg');
 // empty storage button
 const emptyStorageButton = document.querySelector('.empty');
+
 // clear storage function. Only clears the note local storage.
 function clearStorage() {
   let note = document.querySelector('#textArea');
   note.value = '';
   localStorage.removeItem('note', note.value);
 }
+
 // empty local storage, meaning everything.
 function emptyStorage() {
   let note = document.querySelector('#textArea');
@@ -39,6 +41,7 @@ function localStorageSupport() {
   return typeof Storage !== 'undefined';
 }
 
+// if there isn't a 'bgcolor' key to get in local storage, make a call to populateStorage() function.
 if (!localStorage.getItem('bgcolor')) {
   populateStorage();
 } else {
@@ -62,6 +65,7 @@ function populateStorage() {
       localStorage.setItem('note', document.querySelector('#textArea').value);
       setStyles();
     } catch (domException) {
+      domException = new DOMException();
       if (
         domException.name === 'QUOTA_EXCEEDED_ERR' ||
         domException.name === 'NS_ERROR_DOM_QUOTA_REACHED'
